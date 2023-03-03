@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    /*내장형 톰캣 사용*/
+    implementation 'org.apache.tomcat.embed:tomcat-embed-core:10.1.4'
+    implementation 'org.apache.tomcat.embed:tomcat-embed-jasper:10.1.4'
+
+    /*서블릿 사용 및 JSP로 프론트 구성(jstl로 jsp를 편리하게 사용)*/
+    implementation 'jakarta.servlet:javax.servlet-api:4.0.1'
+    implementation 'jakarta.servlet:jstl:1.2'
+
+    /*로그 출력*/
+    implementation 'ch.qos.logback:logback-classic:1.4.5'
+
+    /*TDD 구현 위한 JUnit*/
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
+}
+
+test {
+    useJUnitPlatform()
+}
