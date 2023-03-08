@@ -19,15 +19,15 @@ import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 public class CalculatorTest {
 
-    @DisplayName("덧셈 연산을 수행한다.")
+    @DisplayName("연산을 수행한다.")
     @ParameterizedTest
     @MethodSource("formulaResult")
-    void calculationTest() {
-        int result = Calculator.calculate(1, "+", 2);
+    void calculationTest(int operand1, String operator, int operand2, int result) {
+        int calculateResult = Calculator.calculate(operand1, operator, operand2);
 
-        assertThat(result).isEqualTo(3);
+        assertThat(calculateResult).isEqualTo(result);
     }
-    Stream<Arguments> formulaResult(){
+    private static Stream<Arguments> formulaResult(){
         return Stream.of(
             arguments(1,"+",2,3),
             arguments(1,"-",2,-1),

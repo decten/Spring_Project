@@ -33,12 +33,13 @@ https://simpleicons.org/
            ```java
            @MethodSource(“함수명”)
         void 테스트함수( 파라미터 ){}
+        /*static 아니면 Cannot invoke non-static method 에러 발생*/
         // 인자가 1개인 경우
-        Stream<리턴타입> 함수(){
+        static Stream<리턴타입> 함수(){
           return Stream.of(원하는 값);
         }
         // 인자가 2개 이상인 경우
-        Stream 함수(){
+        static Stream 함수(){
         return Stream.of(
           arguments(원하는 값1 , 원하는 값2, … ),
           arguments(원하는 값1 , 원하는 값2, … ),
