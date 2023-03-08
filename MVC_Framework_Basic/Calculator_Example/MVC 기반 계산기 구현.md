@@ -27,6 +27,7 @@ https://simpleicons.org/
 1. (느낀점) 이전 프로젝트부터 Test 코드를 작성하고, Production 코드를 작성하는 순서가 이제는 익숙해졌다.
 2. 함수를 void에서 리턴형으로 바꿨을 때, 미리 작성한 함수 호출한 코드에서 alt+enter로 리턴 값 받는 변수를 편하게 설정   
     -> Test 코드에서 유용했다
+3. (단축키) ctrl+alt+n: 자동 정렬, alt+shit: 줄 이동
 
 <br>
 
