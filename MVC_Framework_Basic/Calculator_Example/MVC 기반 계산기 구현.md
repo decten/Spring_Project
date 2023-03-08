@@ -28,6 +28,24 @@ https://simpleicons.org/
 2. 함수를 void에서 리턴형으로 바꿨을 때, 미리 작성한 함수 호출한 코드에서 alt+enter로 리턴 값 받는 변수를 편하게 설정   
     -> Test 코드에서 유용했다
 3. (단축키) ctrl+alt+n: 자동 정렬, alt+shit: 줄 이동
+   4. Parameterized Tests의 dependency: testImplementation 'org.junit.jupiter:junit-jupiter-params:5.7.2'
+      - <span style='background-color: #fff5b1'>@MethodSource + Stream 함수</span> -> 각각의 테스트 함수를 하나의 테스트 함수로 통합
+           ```java
+           @MethodSource(“함수명”)
+        void 테스트함수( 파라미터 ){}
+        // 인자가 1개인 경우
+        Stream<리턴타입> 함수(){
+          return Stream.of(원하는 값);
+        }
+        // 인자가 2개 이상인 경우
+        Stream 함수(){
+        return Stream.of(
+          arguments(원하는 값1 , 원하는 값2, … ),
+          arguments(원하는 값1 , 원하는 값2, … ),
+          );
+        }
+       
+           ```
 
 <br>
 
