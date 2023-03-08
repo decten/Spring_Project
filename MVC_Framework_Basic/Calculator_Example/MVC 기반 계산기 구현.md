@@ -49,10 +49,9 @@ https://simpleicons.org/
         ```
 5. String 값을 비교할 때 **equals** 메소드 사용  
 ex) <span style='background-color: #ffdce0'>"Y"==value</span> 아님, <span style='background-color: #dcffe4'>"Y".equals(value)</span> 맞음
-6. 
-    
+6.
 | Enum |
-|:----:| 
+|:----:|
 **C/C++에서는 그저 int지만, 자바에서는 기능을 갖춘 클래스다**
 
 |                                                  특징                                                  |
@@ -74,15 +73,48 @@ ex) 로또, 계산기, 가위 바위 보
 |:----------------------------------------------------------------:|
 |       Y("1", true) -> Y,i,true는 한 묶음<br>**if문/반복성 코드 줄임**        |
 | java8 이후는 상수 별로 lamda 구현 후 함수 호출 가능 <br>(java7 이하에서는 상수별 메소드 구현) |
-   
+|                 static 메서드 작성할 때 Optional을 같이 사용                 |
+
+7.
+| Optional |
+|:--------:|
+NullpointerException를 해결하기 위한 메소드를 제공하는 제네릭 클래스(모든 타입의 참조 변수 담을 수 있음)  
+-> 반환 결과가 null인지 if문으로 확인하는 걸 옵셔널 메소드로 간단히 처리 
+
+|                 메소드                 | 설명                                                             |
+|:-----------------------------------:|----------------------------------------------------------------|
+|           of, ofNullable            | 객체 생성                                                          |
+| get, orElse, orElseGet, orElseThrow | 객체 값 가져오기, 지정된 예외를 발생하는 orElaseThrow 사용 추천<br><a href="https://ksabs.tistory.com/237">반환 값 참고 |
+
+8.
+| Stream |
+|:------:|
+데이터 소스, 중간 연산(필터/맵), 최종 연산으로 구성된다    
+
+- 데이터 소스: 컬렉션(리스트), 배열(String,기본형-IntStream/LongStream/DoubleStream)-of 메소드  
+    ,람다(iterate, generate), empty, 스트림의 연결(concat) 
+- 내부 상태를 갖는 연산: 값을 반복적으로 처리하기 위해 내부 상태 필요  
+    ex) distinct, skip, limit, sorted, reduce
+
+|                주요 메소드                 | 설명                                                                |
+|:-------------------------------------:|-------------------------------------------------------------------|
+|                filter                 | equals로 가져올 조건 작성, hashCode/equals로 고유 여부 판단 후 distinct로 중복 제거 가능 |      
+|   takeWhile/dropWhile, limit, skip    | 스트림 슬라이싱: 특정 조건의 리스트 반환                                           |
+|             map, flatMap              | 매핑(변환)                                                            |
+| allMatch/noneMatch, findFirst/findAny | 검색 & 매칭                                                           |
+|                reduce                 | 리듀싱 연산(반환 값-일반적으로 0 생략 가능, 변환 함수, 연산 함수)                          |
+|                collect                | 리듀스/요약 연산, 그룹화, 분할                                                |
+9. ::(더블 콜론)는 객체에서 특정 메소드를 호출할 때 사용 -> 메소드 래퍼런스
 
 <br>  
 
 ## 참고 자료
 https://velog.io/@ljinsk3/Concept-Enum
 https://techblog.woowahan.com/2527/  
-
-
+https://homoefficio.github.io/2019/10/03/Java-Optional-%EB%B0%94%EB%A5%B4%EA%B2%8C-%EC%93%B0%EA%B8%B0/
+https://lee1535.tistory.com/138
+https://www.daleseo.com/java8-optional-effective/ -> <span style='background-color: #fff5b1'>강추!</span>
+https://ryan-han.com/post/dev/java-stream/
 ## 라이센스
 
 MIT &copy; [NoHack](mailto:lbjp114@gmail.com)
