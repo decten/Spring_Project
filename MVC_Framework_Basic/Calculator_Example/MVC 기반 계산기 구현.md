@@ -28,27 +28,60 @@ https://simpleicons.org/
 2. 함수를 void에서 리턴형으로 바꿨을 때, 미리 작성한 함수 호출한 코드에서 alt+enter로 리턴 값 받는 변수를 편하게 설정   
     -> Test 코드에서 유용했다
 3. (단축키) ctrl+alt+n: 자동 정렬, alt+shit: 줄 이동
-   4. Parameterized Tests의 dependency: testImplementation 'org.junit.jupiter:junit-jupiter-params:5.7.2'
-      - <span style='background-color: #fff5b1'>@MethodSource + Stream 함수</span> -> 각각의 테스트 함수를 하나의 테스트 함수로 통합
-           ```java
-           @MethodSource(“함수명”)
-        void 테스트함수( 파라미터 ){}
-        /*static 아니면 Cannot invoke non-static method 에러 발생*/
-        // 인자가 1개인 경우
-        static Stream<리턴타입> 함수(){
-          return Stream.of(원하는 값);
-        }
-        // 인자가 2개 이상인 경우
-        static Stream 함수(){
-        return Stream.of(
-          arguments(원하는 값1 , 원하는 값2, … ),
-          arguments(원하는 값1 , 원하는 값2, … ),
-          );
-        }
+4. Parameterized Tests의 dependency: testImplementation 'org.junit.jupiter:junit-jupiter-params:5.7.2'
+   - <span style='background-color: #fff5b1'>@MethodSource + Stream 함수</span> -> 각각의 테스트 함수를 하나의 테스트 함수로 통합
+        ```java 
+     @MethodSource(“함수명”)
+     void 테스트함수( 파라미터 ){}
+     /*static 아니면 Cannot invoke non-static method 에러 발생*/
+     // 인자가 1개인 경우
+     static Stream<리턴타입> 함수(){
+       return Stream.of(원하는 값);
+     }
+     // 인자가 2개 이상인 경우
+     static Stream 함수(){
+     return Stream.of(
+       arguments(원하는 값1 , 원하는 값2, … ),
+       arguments(원하는 값1 , 원하는 값2, … ),
+       );
+     }
        
-           ```
+        ```
+5. String 값을 비교할 때 **equals** 메소드 사용  
+ex) <span style='background-color: #ffdce0'>"Y"==value</span> 아님, <span style='background-color: #dcffe4'>"Y".equals(value)</span> 맞음
+6. 
+    
+| Enum |
+|:----:| 
+**C/C++에서는 그저 int지만, 자바에서는 기능을 갖춘 클래스다**
 
-<br>
+|                                                  특징                                                  |
+|:----------------------------------------------------------------------------------------------------:|
+|                  인터페이스 아니고, <span style='background-color: #fff5b1'>추상 클래스</span>다                   |
+|                    클래스를 <span style='background-color: #ffdce0'>상속</span> 받을 수 없다                    | 
+| 인터페이스를 <span style='background-color: #dcffe4'>구현</span> 할 수 있다 -> <u>함수, 추상 메소드, 생성자</u> 선언 및 구현 가능 |
+##### Enum 언제 사용할까?
+사용하는 인스턴스 수가 정해져 있고 처리할 수 있는 상수 값이 여러 개 존재할 때   
+ex) 로또, 계산기, 가위 바위 보
+##### Enum 장점
+- 문자열 보다 IDE의 지원이 더 많다  
+  ex) 자동 완성, 오타 검증, 텍스트 리팩토링
+- 허용 가능한 값을 제한할 수 있다
+- 리팩토링시 변경 범위가 최소화 된다  
+-> enum만 수정하면 됨  
+
+|                                활용                                |
+|:----------------------------------------------------------------:|
+|       Y("1", true) -> Y,i,true는 한 묶음<br>**if문/반복성 코드 줄임**        |
+| java8 이후는 상수 별로 lamda 구현 후 함수 호출 가능 <br>(java7 이하에서는 상수별 메소드 구현) |
+   
+
+<br>  
+
+## 참고 자료
+https://velog.io/@ljinsk3/Concept-Enum
+https://techblog.woowahan.com/2527/  
+
 
 ## 라이센스
 
