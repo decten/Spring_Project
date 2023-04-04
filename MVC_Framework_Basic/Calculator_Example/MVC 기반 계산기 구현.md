@@ -105,6 +105,11 @@ NullpointerException를 해결하기 위한 메소드를 제공하는 제네릭 
 |                reduce                 | 리듀싱 연산(반환 값-일반적으로 0 생략 가능, 변환 함수, 연산 함수)                          |
 |                collect                | 리듀스/요약 연산, 그룹화, 분할                                                |
 9. ::(더블 콜론)는 객체에서 특정 메소드를 호출할 때 사용 -> 메소드 래퍼런스
+10. <b>인터페이스 리스트 생성</b>: <u>자료형</u>은 상위 인터페이스, <u>리스트</u>는 인터페이스 구현체
+```java
+private static final List<NewArithmeticOperator> arithmeticOperators = List.of(new AdditionOperator(),
+    new SubtractionOperator(), new MultiplicationOperator(), new DivisionOperator());
+```
 
 <br>  
 
