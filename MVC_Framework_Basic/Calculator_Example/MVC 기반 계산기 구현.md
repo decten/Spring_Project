@@ -105,12 +105,30 @@ NullpointerException를 해결하기 위한 메소드를 제공하는 제네릭 
 |                reduce                 | 리듀싱 연산(반환 값-일반적으로 0 생략 가능, 변환 함수, 연산 함수)                          |
 |                collect                | 리듀스/요약 연산, 그룹화, 분할                                                |
 9. ::(더블 콜론)는 객체에서 특정 메소드를 호출할 때 사용 -> 메소드 래퍼런스
-10. <b>인터페이스 리스트 생성</b>: <u>자료형</u>은 상위 인터페이스, <u>리스트</u>는 인터페이스 구현체
+10. 객체 지향 -> enum이 아닌 인터페이스 활용, 공통된 입력 조건을 새로운 클래스에 정의해서 사용-원래 사용했던 자료형을 다 변경해줘야 함+변경 함수 추가, 코드를 최대한 함수로 쪼갠다(if 안에 코드 대신 boolean 함수 사용)
+11. <b>인터페이스 리스트 생성</b>: <u>자료형</u>은 상위 인터페이스, <u>리스트</u>는 인터페이스 구현체
 ```java
 private static final List<NewArithmeticOperator> arithmeticOperators = List.of(new AdditionOperator(),
     new SubtractionOperator(), new MultiplicationOperator(), new DivisionOperator());
 ```
+12. 예외를 발생시킬때 new로 생성해야 한다
+```java
+if(operand2 == 0){
+            throw new IllegalArgumentException("");
+        }
+```
+13. 생성자에도 접근 지정자 사용할 수 있음
+```java
+public PositiveNumber()
+```
+14. 매개변수를 받아서 상수 값 지정 가능
+```java
+    private final int value;
 
+    public PositiveNumber(int value){
+        this.value = value;
+    }
+```
 <br>  
 
 ## 참고 자료

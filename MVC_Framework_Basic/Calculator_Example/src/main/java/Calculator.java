@@ -2,13 +2,14 @@ import calculate.AdditionOperator;
 import calculate.DivisionOperator;
 import calculate.MultiplicationOperator;
 import calculate.NewArithmeticOperator;
+import calculate.PositiveNumber;
 import calculate.SubtractionOperator;
 import java.util.List;
 
 public class Calculator {
     private static final List<NewArithmeticOperator> arithmeticOperators = List.of(new AdditionOperator(),
         new SubtractionOperator(), new MultiplicationOperator(), new DivisionOperator());
-    public static int calculate(int operand1, String operator, int operand2) {
+    public static int calculate(PositiveNumber operand1, String operator, PositiveNumber operand2) {
         //operator에 맞는 인터페이스 구현체를 찾음
         return arithmeticOperators.stream().filter(arithmeticOperators -> arithmeticOperators.supports(operator))
             //찾은 구현체로 계산함
