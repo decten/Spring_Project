@@ -1,26 +1,19 @@
 # MVC 기반 계산기 구현
 
-## 프로젝트 소개
-
-
 
 ## 기술 스택
-<img src="https://img.shields.io/badge/이름-색깔?style=for-the-badge&logo=이름&logoColor=white">
-https://simpleicons.org/
+<img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=Java&logoColor=white">
 
-<br>
+
 
 ## 구현 기능
 
-### 기능 1
+### 사칙 연산
 
-### 기능 2
+#### 양수로만 계산
 
-### 기능 3
+#### 나눗셈에서 0을 나누는 경우 IllegalArgument 예외
 
-### 기능 4
-
-<br>
 
 ## 배운 점
 
