@@ -44,7 +44,11 @@ public class GameRanking {
     3) 도메인 모델링-동적인 객체를 정적인 타입(클래스)으로 추상화
    4) 협력
    5) 객체를 포괄하는 타입에 책임 할당
-
+3. generate 단축키: alt+insert(테스트 메소드)
+4. <b>assertThatCode</b>를 사용하기 위해선 gradle에 의존성 추가해야 함:
+```java
+       testImplementation 'org.assertj:assertj-core:3.19.0'
+```
 
 </p>
 
