@@ -9,6 +9,7 @@ public class CourseTest {
     @DisplayName("과목(코스)을 생성한다.")
     @Test
     void createTest() {
-        assertThatCode()
+        assertThatCode(()->new Course("OOP", 3, "A+"))
+            .doesNotThrowAnyException();
     }
 }
