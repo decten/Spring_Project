@@ -49,7 +49,17 @@ public class GameRanking {
 ```java
        testImplementation 'org.assertj:assertj-core:3.19.0'
 ```
-
+5. 테스트 코드를 먼저 통과함으로써 모듈의 로직이 잘 짜였는지 확인할 수 있음 - 모든 틀을 갖추고 함수 로직을 채우는 형태
+- 함수를 작성할 때도 함수를 사용하는 곳에 먼저 작성하고 나중에 Alt+Enter로 구현한다
+6. switch case에서 바로 return이 아니라 변수 한 번 거치고 return
+```java
+switch (this.grade){
+            case "A+":
+                grade = 4.5;
+                break;
+        }
+        return grade;
+```
 </p>
 
 <br>
