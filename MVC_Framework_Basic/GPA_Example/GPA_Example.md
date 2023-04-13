@@ -38,6 +38,11 @@ public class GameRanking {
     }
 }
 ```
+- 프로젝트에서는 Course 클래스 리스트 형태의 인스턴스만 가진 Courses 1급 컬렉션을 만들었다: 해당 컬렉션과 관련된 기능들은 모두 1급 컬렉션으로 위임한 것
+```java
+    private final List<Course> courses; //Courses 클래스 안의 변수는 오로지 이것만 가질 수 있음
+
+```
 2. 객체 지향 설계 고려사항:
     1) 도메인을 구성하는 객체
     2) 객체들간의 관계
