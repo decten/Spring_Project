@@ -9,6 +9,9 @@ public class MenuItem {
         this.name = name;
         this.price = price;
     }
+    public boolean matches(String name) {
+        return this.name.equals(name);
+    }
 
     public String getName() {
         return name;
@@ -34,4 +37,6 @@ public class MenuItem {
     public int hashCode() {
         return Objects.hash(name, price);
     }
+
+
 }
