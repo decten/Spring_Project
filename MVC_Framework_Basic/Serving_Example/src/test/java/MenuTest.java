@@ -16,7 +16,7 @@ public class MenuTest {
         assertThat(menuItem).isEqualTo(new MenuItem("돈까스", 5000));
     }
 
-   @DisplayName("메뉴판에 없는 메뉴를 선택할 시 예외를 반환한다.")
+    @DisplayName("메뉴판에 없는 메뉴를 선택할 시 예외를 반환한다.")
     @Test
     void chooseTest2() {
        Menu menu = new Menu(List.of(new MenuItem("돈까스", 5000), new MenuItem("냉면", 7000)));
