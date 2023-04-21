@@ -1,3 +1,8 @@
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatCode;
+
+import java.util.List;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -18,7 +23,15 @@ import org.junit.jupiter.api.Test;
  */
 public class CustomerTest {
 
+    @DisplayName("메뉴 이름에 해당하는 요리를 주문 한다.")
     @Test
-    void name() {
+    void orderTest() {
+        Customer customer = new Customer();
+        Menu menu = new Menu(List.of(new MenuItem("돈까스", 5000), new MenuItem("냉면", 7000)));
+        Cooking cooking = new Cooking();
+
+        //고객은 요리 이름, 메뉴, 요리사를 넘긴다
+        assertThatCode(()->customer.order("돈까스", menu, cooking))
+            .doesNotThrowAnyException();
     }
 }
