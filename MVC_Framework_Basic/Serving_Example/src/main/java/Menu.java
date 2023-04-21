@@ -8,7 +8,10 @@ public class Menu {
         this.menuItems = menuItems;
     }
 
-    public MenuItem choose(String 돈까스) {
-        return new MenuItem("돈까스", 5000);
+    public MenuItem choose(String name) {
+        return this.menuItems.stream()
+            .filter(menuItem -> menuItem.matches(name))
+            .findFirst()
+            .orElseThrow(()->new IllegalArgumentException("잘못된 메뉴 이름"));
     }
 }
