@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -31,9 +32,14 @@ public class CustomerWebApplicationServer {
                 logger.info("[CustomerWebApplicationServer] client connected.");
 
                 /*사용자 요청을 메인 Thread가 처리*/
-                try(InputStream inputStream = clientSocket.getInputStream();
-                    OutputStream outputStream = clientSocket.getOutputStream() ){
+                try(InputStream inputStream = clientSocket.getInputStream(); OutputStream outputStream = clientSocket.getOutputStream() ){
                     BufferedReader br = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8 ));
+                    DataOutputStream dos = new DataOutputStream(outputStream);
+
+                    String line;
+                    while ((line=br.readLine())!=""){
+                        System.out.println(line);
+                    }
                 }
 
             }
