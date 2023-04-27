@@ -1,11 +1,9 @@
-package calculator.domain;
+package org.example.calculator.domain;
 
-import calculator.tobe.AdditionOperator;
-import calculator.tobe.DivisionOperator;
-import calculator.tobe.MultiplicationOperator;
-import calculator.domain.NewArithmeticOperator;
-import calculator.domain.PositiveNumber;
-import calculator.tobe.SubtractionOperator;
+import org.example.calculator.tobe.AdditionOperator;
+import org.example.calculator.tobe.DivisionOperator;
+import org.example.calculator.tobe.MultiplicationOperator;
+import org.example.calculator.tobe.SubtractionOperator;
 import java.util.List;
 
 public class Calculator {

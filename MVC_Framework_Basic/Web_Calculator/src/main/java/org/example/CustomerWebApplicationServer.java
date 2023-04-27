@@ -1,3 +1,5 @@
+package org.example;
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -23,13 +25,13 @@ public class CustomerWebApplicationServer {
 
     public void start() throws IOException {
         try (ServerSocket serverSocket = new ServerSocket(port)) {
-            logger.info("[CustomerWebApplicationServer] started {} port.", port);
+            logger.info("[org.example.CustomerWebApplicationServer] started {} port.", port);
 
             Socket clientSocket;
-            logger.info("[CustomerWebApplicationServer] waiting for client.");
+            logger.info("[org.example.CustomerWebApplicationServer] waiting for client.");
 
             while ((clientSocket = serverSocket.accept()) != null){
-                logger.info("[CustomerWebApplicationServer] client connected.");
+                logger.info("[org.example.CustomerWebApplicationServer] client connected.");
 
                 /*사용자 요청을 메인 Thread가 처리*/
                 try(InputStream inputStream = clientSocket.getInputStream(); OutputStream outputStream = clientSocket.getOutputStream() ){

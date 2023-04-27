@@ -1,3 +1,5 @@
+package org.example;
+
 import java.io.IOException;
 
 //GET -> /calculate?operand1=11&operator=*&operand2=55

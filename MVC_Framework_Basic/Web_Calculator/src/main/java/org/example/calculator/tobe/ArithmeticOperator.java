@@ -1,4 +1,4 @@
-package calculator.tobe;
+package org.example.calculator.tobe;
 
 import java.util.Arrays;
 
