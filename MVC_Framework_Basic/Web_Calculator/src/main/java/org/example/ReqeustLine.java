@@ -7,7 +7,7 @@ public class ReqeustLine {
 
     private final String method; // GET
     private final String urlPath; // /calculate?operand1=11&operator=*&operand2=55
-    private String queryString;
+    private String queryString; // operand1=11&operator=*&operand2=55
 
     public ReqeustLine(String method, String urlPath, String queryString) {
         this.method = method;
