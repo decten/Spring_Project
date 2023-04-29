@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Objects;
+
 //    GET /calculate?operand1=11&operator=*&operand2=55 HTTP/1.1
 public class ReqeustLine {
 
@@ -23,5 +25,23 @@ public class ReqeustLine {
         if(urlTokens.length == 2){
             this.queryString = urlTokens[1];
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ReqeustLine that = (ReqeustLine) o;
+        return Objects.equals(method, that.method) && Objects.equals(urlPath,
+            that.urlPath) && Objects.equals(queryString, that.queryString);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(method, urlPath, queryString);
     }
 }
