@@ -38,10 +38,6 @@ public class CustomerWebApplicationServer {
                     BufferedReader br = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8 ));
                     DataOutputStream dos = new DataOutputStream(outputStream);
 
-                    String line;
-                    while ((line=br.readLine())!=""){
-                        System.out.println(line);
-                    }
                 }
 
             }
