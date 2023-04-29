@@ -12,5 +12,6 @@ public class ReqeustLineTest {
         ReqeustLine reqeustLine = new ReqeustLine("GET /calculate?operand1=11&operator=*&operand2=55 HTTP/1.1");
 
         assertThat(reqeustLine).isNotNull();
+        assertThat(reqeustLine).isEqualTo(new ReqeustLine("GET", "/calculate","operand1=11&operator=*&operand2=55"));
     }
 }

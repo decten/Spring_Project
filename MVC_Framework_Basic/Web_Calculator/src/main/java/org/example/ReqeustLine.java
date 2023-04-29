@@ -7,6 +7,12 @@ public class ReqeustLine {
     private final String urlPath; // /calculate?operand1=11&operator=*&operand2=55
     private String queryString;
 
+    public ReqeustLine(String method, String urlPath, String queryString) {
+        this.method = method;
+        this.urlPath = urlPath;
+        this.queryString = queryString;
+    }
+
     public ReqeustLine(String reqeustLine) {
         String[] tokens = reqeustLine.split(" ");
         this.method = tokens[0];
