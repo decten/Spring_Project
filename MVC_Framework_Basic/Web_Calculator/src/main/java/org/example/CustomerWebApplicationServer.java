@@ -9,6 +9,8 @@ import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
+import org.example.calculator.domain.Calculator;
+import org.example.calculator.domain.PositiveNumber;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -38,6 +40,18 @@ public class CustomerWebApplicationServer {
                     BufferedReader br = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8 ));
                     DataOutputStream dos = new DataOutputStream(outputStream);
 
+                    HttpRequest httpRequest = new HttpRequest(br);
+
+                    //    GET /calculate?operand1=11&operator=*&operand2=55 HTTP/1.1
+                    if(httpRequest.isGetRequest() && httpRequest.setPath("/calculate")){
+                        QueryStrings queryStrings = httpRequest.getQueryString();
+
+                        int operand1 = queryStrings.getValue("operand1");
+                        String operator = queryStrings.getValue("operator");
+                        int operand2 = queryStrings.getValue("operand2");
+
+                        int result = Calculator.calculate(new PositiveNumber(operand1), operator, new PositiveNumber(operand2));
+                    }
                 }
 
             }
