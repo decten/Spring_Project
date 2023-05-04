@@ -4,18 +4,18 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 public class HttpRequest {
-    private final ReqeustLine reqeustLine;
+    private final RequestLine requestLine;
 
     public HttpRequest(BufferedReader br) throws IOException {
-        this.reqeustLine = new ReqeustLine(br.readLine());
+        this.requestLine = new RequestLine(br.readLine());
     }
 
     public boolean isGetRequest() {
-        return reqeustLine.isGetRequest();
+        return requestLine.isGetRequest();
     }
 
     public boolean setPath(String path) {
-        return reqeustLine.matchPath(path);
+        return requestLine.matchPath(path);
     }
 
     public QueryStrings getQueryString() {

@@ -3,19 +3,19 @@ package org.example;
 import java.util.Objects;
 
 //    GET /calculate?operand1=11&operator=*&operand2=55 HTTP/1.1
-public class ReqeustLine {
+public class RequestLine {
 
     private final String method; // GET
     private final String urlPath; // /calculate?operand1=11&operator=*&operand2=55
     private String queryString; // operand1=11&operator=*&operand2=55
 
-    public ReqeustLine(String method, String urlPath, String queryString) {
+    public RequestLine(String method, String urlPath, String queryString) {
         this.method = method;
         this.urlPath = urlPath;
         this.queryString = queryString;
     }
 
-    public ReqeustLine(String reqeustLine) {
+    public RequestLine(String reqeustLine) {
         String[] tokens = reqeustLine.split(" ");
         this.method = tokens[0];
 
@@ -43,7 +43,7 @@ public class ReqeustLine {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        ReqeustLine that = (ReqeustLine) o;
+        RequestLine that = (RequestLine) o;
         return Objects.equals(method, that.method) && Objects.equals(urlPath,
             that.urlPath) && Objects.equals(queryString, that.queryString);
     }
