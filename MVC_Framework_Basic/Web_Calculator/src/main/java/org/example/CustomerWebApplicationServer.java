@@ -46,9 +46,9 @@ public class CustomerWebApplicationServer {
                     if(httpRequest.isGetRequest() && httpRequest.setPath("/calculate")){
                         QueryStrings queryStrings = httpRequest.getQueryString();
 
-                        int operand1 = queryStrings.getValue("operand1");
+                        int operand1 = Integer.parseInt(queryStrings.getValue("operand1"));
                         String operator = queryStrings.getValue("operator");
-                        int operand2 = queryStrings.getValue("operand2");
+                        int operand2 = Integer.parseInt(queryStrings.getValue("operand2"));
 
                         int result = Calculator.calculate(new PositiveNumber(operand1), operator, new PositiveNumber(operand2));
                     }
