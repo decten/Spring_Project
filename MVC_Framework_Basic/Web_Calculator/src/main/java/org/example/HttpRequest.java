@@ -10,6 +10,14 @@ public class HttpRequest {
         this.reqeustLine = new ReqeustLine(br.readLine());
     }
 
+    public boolean isGetRequest() {
+        return reqeustLine.isGetRequest();
+    }
+
+    public boolean setPath(String path) {
+        return reqeustLine.matchPath(path);
+    }
+
     public QueryStrings getQueryString() {
         return null;
     }

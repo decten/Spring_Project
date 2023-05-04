@@ -27,6 +27,14 @@ public class ReqeustLine {
         }
     }
 
+    public boolean isGetRequest() {
+        return "GET".equals(this.method);
+    }
+
+    public boolean matchPath(String requestPath) {
+        return urlPath.equals(requestPath);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
