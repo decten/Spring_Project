@@ -7,12 +7,12 @@ public class RequestLine {
 
     private final String method; // GET
     private final String urlPath; // /calculate?operand1=11&operator=*&operand2=55
-    private String queryString; // operand1=11&operator=*&operand2=55
+    private QueryStrings queryStrings; // operand1=11&operator=*&operand2=55
 
-    public RequestLine(String method, String urlPath, String queryString) {
+    public RequestLine(String method, String urlPath, String queryStrings) {
         this.method = method;
         this.urlPath = urlPath;
-        this.queryString = queryString;
+        this.queryStrings = new QueryStrings(queryStrings);
     }
 
     public RequestLine(String reqeustLine) {
@@ -23,7 +23,7 @@ public class RequestLine {
         this.urlPath = urlTokens[0];
         //쿼리 스트링이 존재하는 경우
         if(urlTokens.length == 2){
-            this.queryString = urlTokens[1];
+            this.queryStrings = new QueryStrings(urlTokens[1]);
         }
     }
 
@@ -33,6 +33,10 @@ public class RequestLine {
 
     public boolean matchPath(String requestPath) {
         return urlPath.equals(requestPath);
+    }
+
+    public QueryStrings getQueryStrings() {
+        return this.queryStrings;
     }
 
     @Override
@@ -45,11 +49,11 @@ public class RequestLine {
         }
         RequestLine that = (RequestLine) o;
         return Objects.equals(method, that.method) && Objects.equals(urlPath,
-            that.urlPath) && Objects.equals(queryString, that.queryString);
+            that.urlPath) && Objects.equals(queryStrings, that.queryStrings);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(method, urlPath, queryString);
+        return Objects.hash(method, urlPath, queryStrings);
     }
 }

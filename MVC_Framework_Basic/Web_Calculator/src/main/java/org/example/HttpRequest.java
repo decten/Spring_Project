@@ -19,6 +19,6 @@ public class HttpRequest {
     }
 
     public QueryStrings getQueryString() {
-        return null;
+        return requestLine.getQueryStrings();
     }
 }
