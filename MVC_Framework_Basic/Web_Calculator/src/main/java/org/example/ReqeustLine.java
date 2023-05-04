@@ -27,6 +27,10 @@ public class ReqeustLine {
         }
     }
 
+    public boolean isGetRequest() {
+        return "GET".equals(this.method);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {

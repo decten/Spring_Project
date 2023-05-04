@@ -10,6 +10,10 @@ public class HttpRequest {
         this.reqeustLine = new ReqeustLine(br.readLine());
     }
 
+    public boolean isGetRequest() {
+        return reqeustLine.isGetRequest();
+    }
+
     public QueryStrings getQueryString() {
         return null;
     }
