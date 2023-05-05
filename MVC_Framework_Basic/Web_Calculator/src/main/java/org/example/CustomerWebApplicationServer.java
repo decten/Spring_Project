@@ -51,6 +51,10 @@ public class CustomerWebApplicationServer {
                         int operand2 = Integer.parseInt(queryStrings.getValue("operand2"));
 
                         int result = Calculator.calculate(new PositiveNumber(operand1), operator, new PositiveNumber(operand2));
+                        byte[] body = String.valueOf(result).getBytes();
+
+                        HttpResponse httpResponse = new HttpResponse(dos);
+                        httpResponse.response200Header("application/json", body.length);
                     }
                 }
 
