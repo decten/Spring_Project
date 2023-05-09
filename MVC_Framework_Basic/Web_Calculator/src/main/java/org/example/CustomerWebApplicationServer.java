@@ -9,6 +9,8 @@ import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import org.example.calculator.domain.Calculator;
 import org.example.calculator.domain.PositiveNumber;
 import org.slf4j.Logger;
@@ -17,6 +19,7 @@ import org.slf4j.LoggerFactory;
 public class CustomerWebApplicationServer {
 
     private final int port;
+    private final ExecutorService executorService = Executors.newFixedThreadPool(10);
     private static final Logger logger = LoggerFactory.getLogger(
         CustomerWebApplicationServer.class);
 
@@ -59,7 +62,10 @@ public class CustomerWebApplicationServer {
 //                    }
 //                }
                 /* 2. 사용자 요청이 들어올 때마다 Thread를 새로 생성*/
-                new Thread(new ClientRequestHandler(clientSocket)).start();
+//                new Thread(new ClientRequestHandler(clientSocket)).start();
+
+                /* 3. Thread Pool 사용 */
+                executorService.execute(new ClientRequestHandler(clientSocket));
             }
 
         }
