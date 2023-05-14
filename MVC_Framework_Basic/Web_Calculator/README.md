@@ -21,9 +21,8 @@
 - 비연결성: 서버가 클라이언트 요청에 응답을 마치면 연결을 끊어버림<b>(대안:쿠키, 세션, JWT)</b>
 - 메서드: Get, Post, Put, Delete 등
 - 응답 코드: 2xx(성공), 3xx(리다이렉션), 4xx(클라이언트 에러), 5xx(서버 에러) 등  
-
+  ![img_1.png](img_1.png)
 - 헤더 구조
-![img_1.png](img_1.png)
 ![img_2.png](img_2.png)   
 GET ~ HTTP/1.1까지 헤더의 첫 줄을 <b>reqeust line</b>이라고 한다
 -> split해서 queryString만 가져와서 처리한다
