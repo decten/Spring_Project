@@ -8,9 +8,8 @@
 ## 구현 기능
 
 #### 1. Main에서 CustomerWebApplicationServer를 구동하면 test.http에 정의한 URL과 통신한 결과를 log로 출력한다
-
 #### 2. URL을 가공하여 이전에 만든 Calculator로 계산한 값을 HttpResponse로 응답한다
-
+#### 3. 내장 톰캣을 사용 해 웹 서블릿 계산기를 구동한다
 ## 배운 점
 
 #### WebApplication(톰캣)을 직접 구현함으로써, HTTP 프로토콜의 형태와 동작을 파악
@@ -91,12 +90,14 @@ public boolean isGetRequest(){
 - CGI 프로그램 종류: 컴파일 방식(C/C++/Java), 인터프리터 방식(PHP, 파이썬)
   ![img_3.png](img_3.png)
 
-15. 서블릿(Servlet: Server+Applet)
-
+15. 서블릿(Servlet: Server+Applet)  
+- 호출 규약
 - 자바에서 웹 애플리케이션을 만드는 기술
 - 자바에서 동적인 웹 페이지를 구현하기 위한 표준
-  -> CGI를 서블릿이 대신 해줌
-
+  -> CGI를 서블릿이 대신 해줌  
+- @WebServlet 어노테이션: 지정한 URL이 들어오면 선언한 클래스의 서블렛이 실행 됨
+![img_8.png](img_8.png) -> 이것만으론 ClassPath 생성이 안 됨
+![img_9.png](img_9.png)
 16. 서블릿 컨테이너
 
 - 서블릿의 생성부터 소멸까지의 라이프 사이클을 관리해주는 역할
@@ -115,8 +116,19 @@ public boolean isGetRequest(){
 - WAS는 매 요청마다 스레드 풀에서 기존 스레드를 사용한다
 - WAS의 주요 튜닝 포인트는 max thread 수
 - 대표적인 WAS가 톰캣
-  ![img_4.png](img_4.png)
-  <br>
+  ![img_4.png](img_4.png)  
+
+18. 서블릿 인터페이스  
+![img_5.png](img_5.png)
+![img_6.png](img_6.png)
+- 서블릿 컨테이너가 서블릿 인터페이스에 있는 메소드들을 호출 함
+- 서블릿 생명 주기와 관련된 메소드: init, service, destroy
+- 서블릿 기타 메소드: getServletConfig, getServletInfo  
+
+19. 내장형 톰캣 환경 설정  
+![img_10.png](img_10.png)
+![img_11.png](img_11.png)
+<br>
 
 ## 라이센스
 
