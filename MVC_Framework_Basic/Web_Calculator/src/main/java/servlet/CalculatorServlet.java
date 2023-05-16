@@ -4,6 +4,7 @@ package servlet;
 import java.io.IOException;
 
 import java.io.PrintWriter;
+import javax.servlet.GenericServlet;
 import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -15,16 +16,9 @@ import org.example.calculator.domain.PositiveNumber;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 @WebServlet("/calculate")
-public class CalculatorServlet implements Servlet {
+public class CalculatorServlet extends GenericServlet{
     private static final Logger log = LoggerFactory.getLogger(CalculatorServlet.class);
     //생명 주기 메소드
-    private ServletConfig servletConfig;
-    @Override
-    public void init(ServletConfig servletConfig) throws ServletException {
-        log.info("Init");
-        this.servletConfig = servletConfig;
-    }
-
     @Override
     public void service(ServletRequest request, ServletResponse response) throws ServletException, IOException {
         log.info("Service");
@@ -38,18 +32,4 @@ public class CalculatorServlet implements Servlet {
         writer.println(result);
     }
 
-    @Override
-    public void destroy() {
-
-    }
-    //기타 메소드
-    @Override
-    public ServletConfig getServletConfig() {
-        return this.servletConfig;
-    }
-
-    @Override
-    public String getServletInfo() {
-        return null;
-    }
 }
