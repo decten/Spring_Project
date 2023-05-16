@@ -122,10 +122,18 @@ public boolean isGetRequest(){
 ![img_5.png](img_5.png)
 ![img_6.png](img_6.png)
 - 서블릿 컨테이너가 서블릿 인터페이스에 있는 메소드들을 호출 함
-- 서블릿 생명 주기와 관련된 메소드: init, service, destroy
+- 서블릿 생명 주기와 관련된 메소드: init(초기화-환경 설정), service(주요 동작), destroy
 - 서블릿 기타 메소드: getServletConfig, getServletInfo  
+- 오버라이딩 하는 메소드: 
+  - Servlet 인터페이스: init, service, destroy, getServletConfig, getServletInfo
+  - GenericServlet 추상 클래스: service
+  - HttpServlet 추상 클래스: do+HTTP메소드(해당 프로젝트에선 doGet)
+19. URL 인코딩(퍼센트 인코딩) 
+- URL로 사용할 수 없는 문자(예약어, Non-Ascii 문자)를 %다음 16진수로 표현 함
+- 예시: GET http://localhost:8080/calculate?operand1=11&operator=+&operand2=55 : 에러 발생(+는 예약어)  
+->GET http://localhost:8080/calculate?operand1=11&operator=%2b&operand2=55
 
-19. 내장형 톰캣 환경 설정  
+20. 내장형 톰캣 환경 설정  
 ![img_10.png](img_10.png)
 ![img_11.png](img_11.png)
 <br>
