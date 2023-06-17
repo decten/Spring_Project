@@ -29,6 +29,12 @@
 커넥션 수 ↑: 메모리 소모가 크지만 동접자가 많아도 대기 시간 줄어듦, 커넥션 수 ↓: 메모리 소모 적지만 대기 시간 늘어남
 4. DataSource
 - 커넥션을 획득하기 위한 표준 인터페이스
+5. ResourceDatabasePopulator : 스크립트 로더
+    ```java
+    populator.addScript(new ClassPathResource("db_schema.sql"));
+    ```
+   이런 식으로 DB 초기 설정하는 스크립트를 설정할 수 있다
+6. TDD-@BeforeEach setUP 메서드: 테스트 코드 수행 전 수행할 동작
 ## 라이센스
 
 MIT &copy; [NoHack](mailto:lbjp114@gmail.com)
