@@ -35,6 +35,12 @@
     ```
    이런 식으로 DB 초기 설정하는 스크립트를 설정할 수 있다
 6. TDD-@BeforeEach setUP 메서드: 테스트 코드 수행 전 수행할 동작
+7. HikariCP: Database와의 커넥션 풀 관리
+   **setDriverClassName**: JDBC 드라이버의 클래스 이름 설정,  데이터베이스의 종류에 따라 다른 JDBC 드라이버를 사용해야 함    
+     <b>setJdbcUrl</b>:  jdbc:subprotocol:subname   
+     &nbsp; ex) jdbc:mysql://localhost:3306/testdb?user=root&password=secret
+
+
 ## 라이센스
 
 MIT &copy; [NoHack](mailto:lbjp114@gmail.com)
