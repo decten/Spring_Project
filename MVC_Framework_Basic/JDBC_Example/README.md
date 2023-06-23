@@ -44,8 +44,17 @@
    **setDriverClassName**: JDBC 드라이버의 클래스 이름 설정,  데이터베이스의 종류에 따라 다른 JDBC 드라이버를 사용해야 함    
      <b>setJdbcUrl</b>:  jdbc:subprotocol:subname   
      &nbsp; ex) jdbc:mysql://localhost:3306/testdb?user=root&password=secret
-
-
+8. DB 연결 해제  
+    <b>Connection은 물론이고, PreparedStatement도 해제해야 함</b>
+    ```java
+            if(pstmt != null){
+                pstmt.close();
+            }
+            if(con!=null){
+                con.close();
+            }
+    ```
+9. ResultSet: executeQuery 실행 후 반환 객체(결과값)
 ## 라이센스
 
 MIT &copy; [NoHack](mailto:lbjp114@gmail.com)

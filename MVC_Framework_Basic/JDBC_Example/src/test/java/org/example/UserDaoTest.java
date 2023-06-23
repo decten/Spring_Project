@@ -2,6 +2,7 @@ package org.example;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.sql.SQLException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.core.io.ClassPathResource;
@@ -18,7 +19,7 @@ public class UserDaoTest {
     }
 
     @Test
-    void createTest() {
+    void createTest() throws SQLException {
         UserDao userDao = new UserDao();
 
         userDao.create(new User("wizard", "password", "name", "email"));
