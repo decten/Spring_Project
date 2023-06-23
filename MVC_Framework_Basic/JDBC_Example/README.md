@@ -21,6 +21,11 @@
 1. JDBC
 - 자바에서 DB 프로그래밍을 할 수 있도록 도와주는 표준 인터페이스 -> <b>표준 인터페이스라 DBMS 종류 상관 없음</b>
 - JDBC 인터페이스 구현체는 각 데이터베이스 벤더 사들이 제공 -> <b>JDBC 드라이버</b>라고 부름
+- <a href="https://kyun2.tistory.com/23">연결 순서</a>  
+  (1) Class.forName() 을 이용해서 드라이버 로드  
+  (2) DriverManager.getConnection() 으로 연결 얻기   
+  (3) Connection 인스턴스를 이용해서 Statement 객체 생성  
+  (4) Statement 객체의 결과를 ResultSet 이나 int에 받기  
 2. DBCP(DB 커넥션 풀)
 - 미리 일정량의 DB 커넥션을 생성해서 풀에 저장하고, HTTP 요청에 따라 풀에서 커넥션을 가져다 씀
 - 스프링 부트 2.0부터는 디폴트 커넥션 풀이 HikariCP(히카리)
