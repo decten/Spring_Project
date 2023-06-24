@@ -18,6 +18,7 @@
 <br>
 
 ## 배운 점
+**ctrl+alt+c로 원래 값을 변수로 만들 수 있음**
 1. JDBC
 - 자바에서 DB 프로그래밍을 할 수 있도록 도와주는 표준 인터페이스 -> <b>표준 인터페이스라 DBMS 종류 상관 없음</b>
 - JDBC 인터페이스 구현체는 각 데이터베이스 벤더 사들이 제공 -> <b>JDBC 드라이버</b>라고 부름
@@ -31,7 +32,8 @@
 - 스프링 부트 2.0부터는 디폴트 커넥션 풀이 HikariCP(히카리)
 3. 커넥션 풀 사용 시 유의 사항
 - 커넥션의 사용 주체는 WAS 스레드 -> 커넥션 개수는 WAS 스레드 수를 고려해야 함  
-커넥션 수 ↑: 메모리 소모가 크지만 동접자가 많아도 대기 시간 줄어듦, 커넥션 수 ↓: 메모리 소모 적지만 대기 시간 늘어남
+커넥션 수 ↑: 메모리 소모가 크지만 동접자가 많아도 대기 시간 줄어듦, 커넥션 수 ↓: 메모리 소모 적지만 대기 시간 늘어남  
+<a href="https://techblog.woowahan.com/2663/">풀 사이즈 계산:</a> Tn × ( Cm - 1 ) + ( Tn / 2 ) 
 4. DataSource
 - 커넥션을 획득하기 위한 표준 인터페이스
 5. ResourceDatabasePopulator : 스크립트 로더
@@ -55,6 +57,12 @@
             }
     ```
 9. ResultSet: executeQuery 실행 후 반환 객체(결과값)
+10. SQL exception 처리
+    ```java
+    (SQLException e){
+            throw new IllegalStateException(e);
+        }
+    ```
 ## 라이센스
 
 MIT &copy; [NoHack](mailto:lbjp114@gmail.com)
