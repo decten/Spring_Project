@@ -42,6 +42,13 @@
 - 런타임에 클래스를 분석해서, 일반 메서드보다 속도가 느림
 - 타입 체크가 컴파일 타임에 불가능함
 - 객체의 추상화가 깨짐
+4. 탑-다운 방식: 선 선언 후 구현 -> 있을 것이라 가정해서 먼저 선언 후 나중에 구현 함 
+5. 가변 인자 & 제네릭 타입의 사용
+    ```java
+        Class<? extends Annotation>... annotations
+    ```
+- 가변 인자: 매개변수를 동적으로 받을 수 있는 방법, 내부적으로 배열로 처리 됨
+- <? extends Annotation>: Annotation 클래스 또는 그 하위 타입만 허용
 ## 라이센스
 리플렉션: https://www.baeldung.com/reflections-library, https://hudi.blog/java-reflection, https://velog.io/@suyeon-jin/%EB%A6%AC%ED%94%8C%EB%A0%89%EC%85%98-%EC%8A%A4%ED%94%84%EB%A7%81%EC%9D%98-DI%EB%8A%94-%EC%96%B4%EB%96%BB%EA%B2%8C-%EB%8F%99%EC%9E%91%ED%95%98%EB%8A%94%EA%B1%B8%EA%B9%8C  
 MIT &copy; [NoHack](mailto:lbjp114@gmail.com)
