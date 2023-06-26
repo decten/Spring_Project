@@ -53,6 +53,15 @@ public class BeanFactory {
         }
         return clazz.getConstructors()[0];
     }
+    private Object getParameterByClass(Class<?> typeClass) {
+        Object instances = getBean(typeClass);
+
+        if(Objects.nonNull(instances)){
+            return instances;
+        }
+        //UserController는 UserService가 필요하기 때문에 재귀함수로 재생성
+        return createInstance(typeClass);
+    }
     public <T> T getBean(Class<?> requiredType) {
         //requiredType(Class)를 키로 가진 Object 반환
         return (T)beans.get(requiredType);
