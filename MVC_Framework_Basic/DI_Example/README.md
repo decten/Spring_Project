@@ -49,6 +49,17 @@
     ```
 - 가변 인자: 매개변수를 동적으로 받을 수 있는 방법, 내부적으로 배열로 처리 됨
 - <? extends Annotation>: Annotation 클래스 또는 그 하위 타입만 허용
+6. 제네릭 메소드
+   ![img.png](img.png)
+- 제네릭 타입: 메서드가 다루는 타입(매개변수)
+- 리턴 타입: 반환하는 타입, primitive도 가능  
+-> 제네릭 타입과 리턴 타입은 일치하지 않아도 됨
+```java
+public <T> int getSize(T... elements) {
+    return elements.length;
+}
+```
+
 ## 라이센스
 리플렉션: https://www.baeldung.com/reflections-library, https://hudi.blog/java-reflection, https://velog.io/@suyeon-jin/%EB%A6%AC%ED%94%8C%EB%A0%89%EC%85%98-%EC%8A%A4%ED%94%84%EB%A7%81%EC%9D%98-DI%EB%8A%94-%EC%96%B4%EB%96%BB%EA%B2%8C-%EB%8F%99%EC%9E%91%ED%95%98%EB%8A%94%EA%B1%B8%EA%B9%8C  
 MIT &copy; [NoHack](mailto:lbjp114@gmail.com)
