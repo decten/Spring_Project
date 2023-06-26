@@ -1,9 +1,16 @@
 package org.example.di;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.example.annotation.Inject;
 import org.example.controller.UserController;
+import org.reflections.ReflectionUtils;
+import org.reflections.Reflections;
 
 public class BeanFactory {
 
@@ -13,8 +20,36 @@ public class BeanFactory {
 
     public BeanFactory(Set<Class<?>> preInstantiatedClass) {
         this.preInstantiatedClass = preInstantiatedClass;
+        initialize();
+    }
+    private void initialize(){
+        for(Class<?> clazz: preInstantiatedClass){
+            Object instance = createInstance(clazz);
+            beans.put(clazz, instance);
+        }
     }
 
+    private Object createInstance(Class<?> clazz) {
+        //인스턴스 생성하기 위해 생성자와 파라미터 조회
+        Constructor<?> constructor = findConstructor(clazz);
+        List<Object> parameters = new ArrayList<>();
+        for (Class<?> typeClass:constructor.getParameterTypes()){
+            parameters.add(getParameterByClass(typeClass));
+        }
+        try {
+            return constructor.newInstance(parameters.toArray());
+        } catch (InstantiationException | IllegalAccessException | InvocationTargetException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    private Constructor<?> findConstructor(Class<?> clazz){
+        //inject가 붙은 모든 클래스의 생성자를 가져온다
+        Set<Constructor> injectedConstrctors = ReflectionUtils.getAllConstructors(clazz,
+            ReflectionUtils.withAnnotation(Inject.class));
+        if(injectedConstrctors.isEmpty()) return null;
+        //첫 번째 인자 리턴
+        return injectedConstrctors.iterator().next();
+    }
     public <T> T getBean(Class<?> requiredType) {
         //requiredType(Class)를 키로 가진 Object 반환
         return (T)beans.get(requiredType);
