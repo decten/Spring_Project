@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import org.example.annotation.Inject;
 import org.example.controller.UserController;
@@ -42,13 +43,15 @@ public class BeanFactory {
             throw new RuntimeException(e);
         }
     }
+
     private Constructor<?> findConstructor(Class<?> clazz){
         //inject가 붙은 모든 클래스의 생성자를 가져온다
-        Set<Constructor> injectedConstrctors = ReflectionUtils.getAllConstructors(clazz,
-            ReflectionUtils.withAnnotation(Inject.class));
-        if(injectedConstrctors.isEmpty()) return null;
-        //첫 번째 인자 리턴
-        return injectedConstrctors.iterator().next();
+        Constructor<?> constructor = BeanFactoryUtils.getInjectedConstructor(clazz);
+
+        if(Objects.nonNull(constructor)){
+            return constructor;
+        }
+        return clazz.getConstructors()[0];
     }
     public <T> T getBean(Class<?> requiredType) {
         //requiredType(Class)를 키로 가진 Object 반환
