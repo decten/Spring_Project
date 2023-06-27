@@ -1,6 +1,6 @@
 package org.example.controller;
 
-import org.example.Service.UserService;
+import org.example.service.UserService;
 import org.example.annotation.Controller;
 import org.example.annotation.Inject;
 
