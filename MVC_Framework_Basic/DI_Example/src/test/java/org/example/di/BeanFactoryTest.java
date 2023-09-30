@@ -21,7 +21,7 @@ class BeanFactoryTest {
         /*리플렉션 초기화-org.example 패키지 아래 클래스&모듈에 리플랙션 사용*/
         reflections = new Reflections("org.example");
         //UserController, UserServices
-        Set<Class<?>> preInstantiatedClass = getTypesAnnotatedWith(Controller.class, Service.class); //탑-다운 방식
+        Set<Class<?>> preInstantiatedClass = getTypesAnnotatedWith(Controller.class, Service.class);
         beanFactory = new BeanFactory(preInstantiatedClass);
     }
 

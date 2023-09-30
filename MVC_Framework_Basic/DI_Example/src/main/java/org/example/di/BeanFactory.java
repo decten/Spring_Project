@@ -43,7 +43,6 @@ public class BeanFactory {
             throw new RuntimeException(e);
         }
     }
-
     private Constructor<?> findConstructor(Class<?> clazz){
         //inject가 붙은 모든 클래스의 생성자를 가져온다
         Constructor<?> constructor = BeanFactoryUtils.getInjectedConstructor(clazz);
@@ -65,5 +64,9 @@ public class BeanFactory {
     public <T> T getBean(Class<?> requiredType) {
         //requiredType(Class)를 키로 가진 Object 반환
         return (T)beans.get(requiredType);
+    }
+
+    public void registerBean(Class<?> beanClass, Object beanInstance) {
+        beans.put(beanClass, beanInstance);
     }
 }
