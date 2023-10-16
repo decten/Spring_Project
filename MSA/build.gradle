@@ -20,6 +20,7 @@ dependencies {
     implementation 'io.springfox:springfox-boot-starter:3.0.0'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'io.projectreactor:reactor-test:3.5.8'
+    testImplementation 'junit:junit:4.13.1'
 }
 
 tasks.named('test') {
