@@ -10,6 +10,9 @@ public class ProductCompositeServiceImpl implements ProductCompositeService{
 
     private final ServiceUtil serviceUtil;
 
+    private final ProductCompositeRepository repository;
+
+    private final ProductCompositeMapper mapper;
     @Autowired
     public ProductCompositeServiceImpl(ProductCompositeRepository repository,
         ProductCompositeMapper mapper, ServiceUtil serviceUtil) {
